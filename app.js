@@ -1,7 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var { sequelize } = require('./models')
+var sequelize = require('./models').sequelize;
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
 
 var app = express();
-sequelize.sync
+sequelize.sync();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

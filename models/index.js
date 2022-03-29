@@ -4,10 +4,10 @@ const Sequelize = require('sequelize')
 const db = {}
 
 const config = {
-  "username": "testuser",
-  "password": "capstone2022",
-  "database": "test001",
-  "host": "127.0.0.1",
+  "username": "r5bgq7x3zp4u38ul",
+  "password": "edz9vhv0rhgpj00a",
+  "database": "wttmzr8hjj3blrml",
+  "host": "kfgk8u2ogtoylkq9.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
   "dialect": "mysql",
   "define": {
     "underscored": false,
