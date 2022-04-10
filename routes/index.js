@@ -13,14 +13,14 @@ router.get('/register', (req, res, next) => {
 
 router.post('/checkLogin', async (req, res, next) => {
   const { uId, pw } = req.body
-  if(!uId || !pw) return res.send('<script>alert("로그인에 실패하였습니다.");location.href="/"</script>');
+  if(!uId || !pw) return res.send('<script>alert("Login failed");location.href="/"</script>');
 
   try {
     const user = await User.findOne({ where: { uId, pw } }); // select * from User where uId = uId , pw = pw
-    if(!user) return res.send('<script>alert("회원 정보가 없습니다.");location.href="/"</script>');
+    if(!user) return res.send('<script>alert("No member information");location.href="/"</script>');
     console.log(user.dataValues)
     
-    return res.send(`<script>alert("${uId}님 로그인에 성공하였습니다.");location.href="/"</script>`);
+    return res.send(`<script>alert("${uId} - Login Successful");location.href="/"</script>`);
   } catch(err) {
     console.error(err)
     return res.send('<script>alert("error");location.href="/"</script>');
@@ -30,14 +30,14 @@ router.post('/checkLogin', async (req, res, next) => {
 router.post('/checkRegister', async (req, res, next) => {
   const { uId, pw } = req.body
 
-  if(!uId || !pw) return res.send('<script>alert("로그인에 실패하였습니다.");location.href="/"</script>');
+  if(!uId || !pw) return res.send('<script>alert("Sign up failed");location.href="/"</script>');
 
   try {
     const user = await User.create({ uId, pw }); // insert into User value ~~~
-    if(!user) return res.send('<script>alert("회원 정보가 없습니다.");location.href="/"</script>');
+    if(!user) return res.send('<script>alert("No member information");location.href="/"</script>');
     console.log(user.dataValues)
     
-    return res.send(`<script>alert("${uId}님 회원가입 성공하였습니다.");location.href="/"</script>`);
+    return res.send(`<script>alert("${uId} - Sign up Successful");location.href="/"</script>`);
   } catch(err) {
     console.error(err)
     return res.send('<script>alert("error");location.href="/"</script>');
